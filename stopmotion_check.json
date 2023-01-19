@@ -1,1 +1,7 @@
-{ "version": "1.0.7", "message": "Update Available" }
+{ 
+  "version": "1.0.7", 
+  "message": "Update Available",
+  "notification": "",
+  "link": "",
+  "linkText": ""
+}
