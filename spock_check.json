@@ -1,9 +1,8 @@
 { 
-  "version": "2.24.17", 
+  "version": "0.3.0", 
   "ver_message": "Update Available",
-  "bm_url": "https://blendermarket.com/products/kit-ops-pro-asset--kitbashing-addon",
-  "gm_url": "https://chippwalters.gumroad.com/l/kitopspro",
-  "message": "New update to EEVEE + Cycles Material System",
-  "btn_name": "Learn More",
-  "url": "https://blendermarket.com/products/definitely-eevee-materials-system"
+  "bm_url": "https://blendermarket.com/products/spock",
+  "message": "Spock update available",
+  "btn_name": "",
+  "url": ""
 }
