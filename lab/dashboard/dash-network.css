@@ -1,0 +1,55 @@
+body, html{height:100%; margin:0; padding:0;}
+svg { position:absolute; top:0; left:0; }
+
+body{ display:flex; flex-direction: column; }
+#dashboard{ display:flex; flex-direction: row; position:relative; flex-grow:1;}
+#containerRight,#containerLeft{ display:flex; flex-grow:1; }
+#containerRight2containerLeft{ position:relative; height:50px; width:100%;}
+.passthru-containerRight, .passthru-containerLeft{ flex-shrink: 1; display:inline-block; position:absolute; width:36px; display:flex; flex-direction: row;}
+.passthru-containerLeft{left:10px; height:36px;}
+.passthru-containerLeft div.in{ position: absolute; height:18px; width:18px; left:0; bottom:0; }
+.passthru-containerLeft div.out{ position: absolute; height:18px; right:0; top:0; width: 18px; }
+.passthru-containerRight div.in{ position: absolute; height:18px; left:0; top:0; width: 18px; }
+.passthru-containerRight div.out{ position: absolute; height:18px; width:18px; right:0; bottom:0; }
+.passthru-containerRight{right:10px; height:30px;}
+.passthru-containerMid{flex-grow:1;}
+
+
+div.dash-network{ display:flex; flex-direction: row; position:relative;}
+div.dash-network-container-mid{ display:flex; flex-direction: column; flex-grow:1;}
+div.dash-network-container-top{ display:flex; flex-shrink:1; justify-content:center; padding:5px;}
+
+div.dash-network-container-bottom{ display:flex; flex-shrink:1; justify-content:center;padding:5px; }
+div.dash-network-container-left{ display:flex; flex-direction: column; flex-shrink:1; justify-content:center; padding:5px; }
+div.dash-network-container-right{ display:flex; flex-direction: column; flex-shrink:1; justify-content:center; padding:5px; }
+div.dash-network-container-center{ display:flex; flex-grow:1; justify-content:center; padding:5px; }
+
+div.dash-network div.node{ position:relative; border:1px solid #000; border-radius:2px; margin:2px; padding:2px;}
+
+div.dash-network-container-top div.node{ padding-bottom:18px; min-width:28px; }
+div.dash-network-container-top div.in{ position:absolute; bottom:0; left:0; }
+div.dash-network-container-top div.out{ position:absolute; bottom:0; left:16px; }
+div.dash-network-container-top div.dash-network-incoming, div.dash-network-container-top div.dash-network-outgoing{ min-width:18px; margin-bottom:3px;padding-bottom: 18px; }
+
+
+div.dash-network-container-right div.node{ padding-left:18px; min-height:28px; }
+div.dash-network-container-right div.in{ position:absolute; top:0; left:0; }
+div.dash-network-container-right div.out{ position:absolute; top:16px; left:0; }
+div.dash-network-container-right div.dash-network-incoming, div.dash-network-container-right div.dash-network-outgoing{ min-height:18px; margin-left:3px;padding-left: 18px; }
+
+
+div.dash-network-container-bottom div.node{ padding-top:18px; min-width:28px; }
+div.dash-network-container-bottom div.in{ position:absolute; top:0; left:0; }
+div.dash-network-container-bottom div.out{ position:absolute; top:0; left:16px; }
+div.dash-network-container-bottom div.dash-network-incoming, div.dash-network-container-bottom div.dash-network-outgoing{ min-width:18px; margin-top:3px;padding-top: 18px; }
+
+
+div.dash-network-container-left div.node{ padding-right:18px; min-height:28px; }
+div.dash-network-container-left div.dash-network-incoming, div.dash-network-container-left div.dash-network-outgoing{ min-height:18px; margin-right:3px;padding-right: 18px; }
+div.dash-network-container-left div.in{ position:absolute; top:0; right:0; }
+div.dash-network-container-left div.out{ position:absolute; top:16px; right:0; }
+
+
+div.dash-network-container-center line{ stroke-width:2px; stroke:#000; position: absolute;}
+
+div.dash-network-incoming, div.dash-network-outgoing{ position:relative; }

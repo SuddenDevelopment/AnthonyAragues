@@ -1,0 +1,52 @@
+html,body { height: 100%; margin: 0px; padding: 0px; overflow-y:hidden;}
+#dashboard{ 
+	height:100%;
+	background: #000;
+	color:#aaa;
+	margin:0;
+	padding-bottom:5px;
+}
+.btn{ display:inline; padding:3px; border:1px solid #666; border-radius: 1px; font-weight: bold; }
+pre{margin:0;}
+.dashboard-container{ margin:2px; display:flex; flex-direction: column; border:1px solid #666; border-radius:3px; overflow:hidden;}
+.dashboard-detail{padding-left:5px;}
+.dashboard-label{ font-weight:bold; text-align: center; padding:2px; }
+.dashboard-kids{ display:flex; flex-grow:1; }
+.dashboard-columns{ flex-direction: row }
+.dashboard-rows{ flex-direction: column;}
+.dashboard-hide{ display:none; }
+div.dashboard-control-close, div.dashboard-control-expand, div.dashboard-control-downgrade{ display:none; }
+div.dashboard-label:hover div.dashboard-control-close{display:inline-block;float:right; cursor:pointer;}
+div.dashboard-label:hover div.dashboard-control-expand{display:inline-block;float:left; cursor:pointer;}
+div.dashboard-label:hover div.dashboard-control-downgrade{display:inline-block;float:right; cursor:pointer;margin-right:5px;}
+
+.state-default{ background:#222; color:#aaa;}
+.state-ok{ background:#222; flex-shrink:1; transition: all .5s ease-in-out;
+	/* box-shadow: inset 0 0 20px #7ccc63; */
+	border-left: 5px solid #7ccc63;
+}
+.state-info{ background:#222; flex-shrink:1;
+	/* box-shadow: inset 0 0 20px #bdc3c7; */
+	border-left: 5px solid #bdc3c7;
+}
+.state-warn{ background:#222; flex-grow:1;
+	/* box-shadow: inset 0 0 20px #f39c12; */
+	border-left: 5px solid #f39c12;
+}
+.state-alert{ background:#222; flex-grow:1; transition: all .5s ease-in-out;
+	/* box-shadow: inset 0 0 20px #e74c3c;  */
+	border-left: 5px solid #e74c3c;
+}
+
+.dashboard-kids .state-default{ flex-grow:1; }
+.dashboard-kids .state-hide{ display:none; }
+.dashboard-kids .state-ok{ flex-shrink:1; }
+.dashboard-kids .state-info{ flex-shrink:1; }
+.dashboard-kids .state-warn{ flex-grow:1; }
+.dashboard-kids .state-alert{ flex-grow:1; }
+
+.string { color: #b5bd68; }
+.number { color: #de935f; }
+.boolean { color: #81a2be; }
+.null { color: #b294bb; }
+.key { color: #cc6666; }

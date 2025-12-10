@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Network Dashboard</title>
+	<link rel="stylesheet" href="dash-network.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+	<div id="dashboard">
+		<div id="containerLeft"></div>
+		<div id="containerRight"></div>
+	</div>
+	<div id="containerRight2containerLeft">
+			<div class="passthru-containerLeft">
+				<div class="in">in</div>
+				<div class="out">out</div>
+			</div>
+			<div class="passthroughMid"></div>
+			<div class="passthru-containerRight">
+				<div class="out">out</div>
+				<div class="in">in</div>
+			</div>
+	</div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.6/svg.min.js"></script>
+ <script src="./leader-line.min.js"></script>
+ <script src="./lodash.js"></script>
+ <script src="./dash-network.js"></script>
+ <script>
+ 	/* mock data
+		
+ 	*/
+ 	var objConfig={
+ 		 "id":'dashboard'
+ 		,"containers":['containerLeft','containerRight']
+ 		,"layout":{
+ 			"containerLeft":'left', "containerRight":'right'
+ 		}
+ 		,"nodes":[
+ 			{
+ 				 "id": 'lefty'
+ 				,"label": ''
+ 				,"position": 'left'
+ 				,"style": ''
+ 				,"container":'containerRight'
+ 			},{
+ 				 "id": 'righty'
+ 				,"label": ''
+ 				,"position": 'right'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'topy'
+ 				,"label": ''
+ 				,"position": 'top'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'bottomy'
+ 				,"label": ''
+ 				,"position": 'bottom'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'lefty2'
+ 				,"label": ''
+ 				,"position": 'left'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'righty2'
+ 				,"label": ''
+ 				,"position": 'right'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'topy2'
+ 				,"label": ''
+ 				,"position": 'top'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'bottomy2'
+ 				,"label": ''
+ 				,"position": 'bottom'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'lefty3'
+ 				,"label": ''
+ 				,"position": 'left'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'righty3'
+ 				,"label": ''
+ 				,"position": 'right'
+ 				,"style": ''
+ 				,"container":'containerRight'
+ 			},{
+ 				 "id": 'topy3'
+ 				,"label": ''
+ 				,"position": 'top'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'bottomy3'
+ 				,"label": ''
+ 				,"position": 'bottom'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'lefty4'
+ 				,"label": ''
+ 				,"position": 'left'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'righty4'
+ 				,"label": ''
+ 				,"position": 'right'
+ 				,"style": ''
+ 			},{
+ 				 "id": 'topy4'
+ 				,"label": ''
+ 				,"position": 'top'
+ 				,"style": ''
+ 				,"container":'containerRight'
+ 			},{
+ 				 "id": 'bottomy4'
+ 				,"label": ''
+ 				,"position": 'bottom'
+ 				,"style": ''
+ 			}
+ 		]
+ 	};
+ 	var objTest={};
+ 	var fnTest=function(objConfig){
+ 		//get a random from and to element as long as they are not the same and do it every so often
+		//console.log(objConfig);
+		var objFrom = objConfig.nodes[_.random(0,objConfig.nodes.length-1)];
+		var objTo = objConfig.nodes[_.random(0,objConfig.nodes.length-1)];
+		while(objFrom === objTo ){ objTo = objConfig.nodes[_.random(0,objConfig.nodes.length-1)]; }
+	  	dashboard.fnEvent( {
+			 "from":objFrom.id
+			,"to":objTo.id
+		} );
+	 }
+
+ 	var dashboard = new Dashboard(objConfig);
+	dashboard.init();
+	SVG.on(document, 'DOMContentLoaded', function() {
+  	objTest=setInterval(function(){fnTest(objConfig)}, 1000);	
+});
+ </script>
+</body>
+</html>
