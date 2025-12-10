@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+	<div id="dashboard"></div>
+ <script src="./dashboard.js"></script>
+ <script>
+ 	/*
+var objConfig = {
+	 "id":'dashboard'
+	,"label": 'Security'
+	,"state": 0
+	,"states":[
+		 { "label": 'ok', "detail":'min', "style": 'state-ok' }
+		,{ "label": 'info', "detail":'state', "style": 'state-info' }
+		,{ "label": 'warn', "detail":'stat', "style": 'state-warn' }
+		,{ "label": 'alert', "detail":'data', "style": 'state-alert' }
+	],"kids":[
+		 { "id":'prod1', "label":'prod 1', "state":1, "detail":'some detail'}
+		,{ "id":'prod2', "label":'prod 2', "state":2, "kids":[
+			 {"id":'server1', "label":'server 1', "state":1}
+			,{"id":'server2', "label":'server 2', "state":1}
+			,{"id":'server3', "label":'server 3', "state":1}
+			,{"id":'server4', "label":'server 4', "state":3, "kids":[
+				 {"id":'service1', "label":'service 1', "state":3}
+				,{"id":'service2', "label":'service 2', "state":0}
+			]}
+		]}
+	]
+};
+*/
+
+var objConfig = {
+	 "id":'dashboard'
+	,"label": 'Security'
+	,"state": 0
+	,"limit":3
+	,"states":[
+		 { "label": 'hidden', "detail":'none', "style": 'state-hide' }
+		,{ "label": 'ok', "detail":'min', "style": 'state-ok', "ttl":3000 }
+		,{ "label": 'info', "detail":'state', "style": 'state-info',"ttl":3000 }
+		,{ "label": 'warn', "detail":'stat', "style": 'state-warn',"ttl":15000 }
+		,{ "label": 'alert', "detail":'data', "style": 'state-alert' }
+	],"kids":[
+		 { "id":'Production', "label":'Production', "state":null, "detail":'',"kids":[
+		 	 {"id":'Production_ATL', "label":'ATL', "state":null, "detail":'',"last_updated":'1 hour ago', "kids":[
+		 	 	 {"id":'Production_ATL_Network', "label":'Network', "state":0, "detail":''}
+		 	 	,{"id":'Production_ATL_Appliances', "label":'Appliances', "state":0, "detail":''}
+		 	 	,{"id":'Production_ATL_Servers', "label":'Servers', "state":0, "detail":''}
+		 	 	,{"id":'Production_ATL_Services', "label":'Services', "state":0, "detail":''}
+		 	 ]}
+		 	,{"id":'Production_TUL', "label":'TUL', "state":null, "detail":'',"kids":[
+		 	 	 {"id":'Production_TUL_Network', "label":'Network', "state":0, "detail":''}
+		 	 	,{"id":'Production_TUL_Appliances', "label":'Appliances', "state":0, "detail":''}
+		 	 	,{"id":'Production_TUL_Servers', "label":'Servers', "state":0, "detail":''}
+		 	 	,{"id":'Production_TUL_Services', "label":'Services', "state":0, "detail":''}
+		 	 ]}
+		 ]}
+		,{ "id":'NotProduction', "label":'Not Production', "state":null, "detail":'',"kids":[
+			 {"id":'NotProduction_Dev', "label":'Dev', "state":null, "detail":'',"kids":[
+		 	 	 {"id":'NotProduction_Dev_Network', "label":'Network', "state":0, "detail":''}
+		 	 	,{"id":'NotProduction_Dev_Appliances', "label":'Appliances', "state":0, "detail":''}
+		 	 	,{"id":'NotProduction_Dev_Servers', "label":'Servers', "state":0, "detail":''}
+		 	 	,{"id":'NotProduction_Dev_Services', "label":'Services', "state":0, "detail":''}
+		 	 ]}
+			,{"id":'NotProduction_Stage', "label":'Stage', "state":null, "detail":'',"kids":[
+		 	 	 {"id":'NotProduction_Stage_Network', "label":'Network', "state":0, "detail":''}
+		 	 	,{"id":'NotProduction_Stage_Appliances', "label":'Appliances', "state":0, "detail":''}
+		 	 	,{"id":'NotProduction_Stage_Servers', "label":'Servers', "state":0, "detail":''}
+		 	 	,{"id":'NotProduction_Stage_Services', "label":'Services', "state":0, "detail":''}
+		 	 ]}
+		 	,{"id":'NotProduction_Cert', "label":'Cert', "state":null, "detail":'',"kids":[
+		 	 	 {"id":'NotProduction_Cert_Network', "label":'Network', "state":0, "detail":''}
+		 	 	,{"id":'NotProduction_Cert_Appliances', "label":'Appliances', "state":0, "detail":''}
+		 	 	,{"id":'NotProduction_Cert_Servers', "label":'Servers', "state":0, "detail":''}
+		 	 	,{"id":'NotProduction_Cert_Services', "label":'Services', "state":0, "detail":''}
+		 	 ]}
+		 ]}
+		,{ "id":'Backoffice', "label":'Backoffice', "state":null, "detail":'',"kids":[
+			 {"id":'Backoffice_Network', "label":'Network', "state":null, "detail":''}
+			,{"id":'Backoffice_Peripherals', "label":'Peripherals', "state":null, "detail":''}
+			,{"id":'Backoffice_Servers', "label":'Servers', "state":null, "detail":''}
+			,{"id":'Backoffice_Employees', "label":'Employees', "state":null, "detail":''}
+		 ]}
+		,{ "id":'Outside', "label":'Outside', "state":null, "detail":'',"kids":[
+			 {"id":'Outside_Brand', "label":'Brand', "state":null, "detail":''}
+			,{"id":'Outside_Partners', "label":'Partners', "state":null, "detail":''}
+			,{"id":'Outside_Customers', "label":'Customers', "state":null, "detail":''}
+			,{"id":'Outside_DLP', "label":'Accounts and Data', "state":null, "detail":''}
+		 ]}
+	]
+};
+var i=0;
+var fnTest=function(){
+	//get a random node and set it to a random state with some details and repeat
+	//get random state
+	var intState=Math.floor(Math.random() * objConfig.states.length);
+	if(typeof objConfig.states[intState] === 'undefined'){ intState=null; }
+	//get random object
+	//console.log(fnRandObject(objConfig));
+	var objUpdate = dashboard.fnRandObject();
+	objUpdate.state=intState;
+	if(intState !== null){ objUpdate.style=objConfig.states[intState].style; }
+	return {"id":objUpdate.id,"state":intState,"detail":{"sample":"data:"+ i++}};
+};
+
+var dashboard = new Dashboard(objConfig);
+dashboard.init();
+//var objConfig = fnCleanLayout(objConfig);
+//fnCreateLayout(objConfig,fnTest);
+
+setInterval(function(){
+	//pass in full config and the object to be updated
+	dashboard.fnUpdateElement(fnTest());
+	dashboard.fnScan();
+}, 2000);
+ 	
+ </script>
+</body>
+</html>

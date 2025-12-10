@@ -1,0 +1,102 @@
+
+/*----=====|| COLORS ||====----*/
+      .tomatoe { background-color: #cc6666; } /* tomato */
+      .orange { background-color: #de935f; } /* orange */
+      .yellow { background-color: #f0c674; } /* yellow */
+      .green { background-color: #b5bd68; } /* green */
+      .teal { background-color: #8abeb7; } /* teal */
+      .blue { background-color: #81a2be; } /* blue */
+      .purple { background-color: #b294bb; } /* purple */
+      .red { background-color: #a3685a; } /* red */
+      .white{ background-color: #fff; }
+
+/*----=====|| DEFAULTS ||====----*/
+html, body{background-color: #1d1f21; height:100%; width:100%; margin:0;padding:5px; color:#fff;}
+div.recordQue{height:44px;width:44px;overflow:hidden;display:inline-block;}
+.recordQue.mini{height:22px;width:22px;padding:5px;}
+#tmpRule{border:1px solid #666; padding:5px; margin-top:10px;}
+div.recordQue td{
+  margin:0;
+  padding:0;
+  border-color:#1d1f21;
+  border-style:solid;
+  border-width:0px;
+  width:20px;
+}
+div.recordQue tr{height:20px;}
+.recordQue .animate{
+  transition: all 2s;
+}
+.recordQue .centerIcon{position:relative;  color:#fff; top:-32px; background:rgba(0,0,0,0.6); border-radius:20px; box-shadow: 0 0 5px #000;}
+.recordQue .iconContainer{width:44px;text-align:center;}
+
+/*----=====|| SHAPES ||====----*/
+
+.modList {
+  display: inline;
+}
+
+.recordQue .null{
+  width:20px;
+  height:20px;}
+.recordQue .drop{
+  width:20px;
+  height:20px;
+  border-radius:100%;
+}
+
+.recordQue .leaf{
+  width:20px;
+  height:20px;
+  border-radius:100%;
+}
+.recordQue #nw.leaf{ border-top-left-radius:2px; }
+.recordQue #ne.leaf{ border-top-right-radius:2px; }
+.recordQue #sw.leaf{ border-bottom-left-radius:2px; }
+.recordQue #se.leaf{ border-bottom-right-radius:2px; }
+
+.recordQue .pie, .recordQue .square{ border-radius: 2px; }
+.recordQue #nw.pie{ border-top-left-radius:100%; }
+.recordQue #ne.pie{ border-top-right-radius:100%; }
+.recordQue #sw.pie{ border-bottom-left-radius:100%; }
+.recordQue #se.pie{ border-bottom-right-radius:100%; }
+
+/*----=====|| MODIFIERS ||====----*/
+.recordQue .cutout {
+  width: 10px;
+  height: 10px;
+  border-style:solid;
+  border-width:5px;
+  border-color:#1d1f21;
+}
+
+.recordQue .hollow {
+  width: 10px;
+  height: 10px;
+  border-style:solid;
+  border-width:5px;
+  background-color: #1d1f21;
+}
+.recordQue .hollow.tomatoe{ border-color: #cc6666; }
+.recordQue .hollow.orange{ border-color: #de935f; }
+.recordQue .hollow.yellow{ border-color: #f0c674; }
+.recordQue .hollow.green{ border-color: #b5bd68; }
+.recordQue .hollow.teal{ border-color: #8abeb7; }
+.recordQue .hollow.blue{ border-color: #81a2be; }
+.recordQue .hollow.purple{ border-color: #b294bb; }
+.recordQue .hollow.red{ border-color: #a3685a; }
+.recordQue .hollow.white{ border-color: #fff; }
+
+/*----=====|| POINT TO THE CENTER ||====----*/
+.recordQue #nw{border-bottom-right-radius:0;}
+.recordQue #ne{border-bottom-left-radius:0;}
+.recordQue #sw{border-top-right-radius:0;}
+.recordQue #se{border-top-left-radius:0;}
+
+.logo{padding-left:10px; color:#fff; font-weight: bold; font-size: 30px; }
+.label{padding-left:10px; color:#fff; font-weight: bold; font-size: 20px; }
+
+.recordQueModel{height:88px;width:84px;overflow:hidden;text-align:center;color:#fff; cursor:pointer; margin:10px;}
+.recordQueModel td{height:40px;width:40px; text-align: center; border:1px solid #666; margin:0;padding:0;}
+.recordQueModel .centerIcon{position:relative;  width:20px; color:#fff; top:-56px; left:32px; background:rgba(0,0,0,0.6); border-radius:20px; box-shadow: 0 0 5px #000; border:1px solid #666;}
+.recordQueModel .activeRegion{background:#300;}
